@@ -17,14 +17,25 @@ function id({ pokemon }) {
   console.log(pokemon, "id");
   return (
     <>
-      <div className="p-3 bg-gray-600 text-white">
+      <div
+        className="p-3 bg-gray-600 text-white"
+        style={{ fontFamily: "Lora" }}
+      >
         <Link href={"/"}>
           {" "}
           <h5 className="text-2xl text-center	"> Pokemon</h5>
         </Link>
       </div>
-
-      <div className="flex  justify-between ">
+      <Head>
+        <title>Pokemon</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap"
+          rel="stylesheet"
+        />
+      </Head>
+      <div className="flex  justify-between " style={{ fontFamily: "Lora" }}>
         <div className=" mx-auto bg-white m-10  border-2 border-grey-500 rounded-2xl	shadow-md 	">
           <Image
             className="mx-auto"
@@ -83,7 +94,7 @@ function id({ pokemon }) {
           <div>
             {" "}
             {pokemon?.stats.map((e) => {
-              var text = e.stat.name
+              let text = e.stat.name
                 .split(" ")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(" ");

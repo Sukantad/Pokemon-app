@@ -54,7 +54,7 @@ export default function Home({ pokeData }) {
       setData(res.data.pokemon);
     } catch (error) {
       console.log(error, "error");
-      return alert("Please type a valid Pogemon name");
+      return alert("Please type a valid Pokemon name");
     }
   };
 
