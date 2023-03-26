@@ -1,12 +1,13 @@
-import HomePage from "@/Components/HomePage";
+import HomePage from "@/components/HomePage";
 import { Inter } from "next/font/google";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-const inter = Inter({ subsets: ["latin"] });
+
 
 export const getStaticProps = async () => {
-  const res = await axios.get(`https://pokeapi.co/api/v2/ability`);
+  const res = await axios.get(
+    `https://pokeapi.co/api/v2/ability?offset=0&limit=10`
+  );
   return {
     props: {
       pokeData: res.data,
@@ -15,16 +16,46 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ pokeData }) {
-  console.log(pokeData);
-
-  const [inputData, setInputData] = useState("limber");
-  const [data, setData] = useState();
-
-  const getData = async (inputData) => {
-    const res = await axios.get(
-      `https://pokeapi.co/api/v2/ability/${inputData}`
+  const [inputData, setInputData] = useState("");
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(0);
+  const [pokData, setPokeData] = useState([]);
+  // pagination
+  const Pagination = async (page) => {
+    const value = await axios.get(
+      `https://pokeapi.co/api/v2/ability?offset=${page}&limit=10`
     );
-    setData(res.data.pokemon);
+    setPokeData(value.data);
+  };
+  useEffect(() => {
+    Pagination(page);
+  }, [page]);
+
+  // Mount phase
+  useEffect(() => {
+    var temp = [];
+    pokData?.results?.map((ele) => {
+      try {
+        axios.get(ele.url).then((response) => {
+          temp.push(response?.data.pokemon);
+          setData(...temp);
+        });
+      } catch (error) {
+        console.log(error, "error");
+      }
+    });
+  }, [pokData]);
+  // get search data
+  const getData = async (inputData) => {
+    try {
+      const res = await axios.get(
+        `https://pokeapi.co/api/v2/ability/${inputData}`
+      );
+      setData(res.data.pokemon);
+    } catch (error) {
+      console.log(error, "error");
+      return alert("Please type a valid Pogemon name");
+    }
   };
 
   useEffect(() => {
@@ -33,7 +64,12 @@ export default function Home({ pokeData }) {
 
   return (
     <>
-      <HomePage data={data} setInputData={setInputData} />
+      <HomePage
+        data={data}
+        setInputData={setInputData}
+        page={page}
+        setPage={setPage}
+      />
     </>
   );
 }
