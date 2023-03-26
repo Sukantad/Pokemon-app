@@ -32,7 +32,7 @@ function HomePage({ setInputData, data, page, setPage }) {
       <Navbar setInputData={setInputData} />
       <div className="grid gap-4 grid-cols-6 m-7">
         {pokDetails?.map((ele, i) => (
-          <Link href={`pogemon/${ele.id}`} key={ele.id}>
+          <Link href={`pokemon/${ele.id}`} key={ele.id}>
             <div
               className="p-5 border-2 border-grey-500 rounded-2xl	shadow-md  hover:border-violet-300	max-h-25	"
               key={i}

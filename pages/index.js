@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import HomePage from "./pogemon";
+import HomePage from "./pokemon";
 
 
 export const getStaticProps = async () => {
