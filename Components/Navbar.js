@@ -10,7 +10,7 @@ function Navbar({ setInputData }) {
     }
   };
   return (
-    <div className="p-2 bg-gray-600 flex justify-around">
+    <div className="bg-gray-600 flex justify-around" style={{padding:"5px 0px 5px 0px"}}>
      
         <h5 className="text-white py-2 font-medium w-1/2  sm:text-base lg:text-2xl xl:text-2xl"> <Link href={"/"}>  Pokemon  </Link></h5> 
     
