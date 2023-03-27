@@ -9,12 +9,13 @@
 
 - First Clone this git repo
 - npm i (install all dependencies package)
- 
+- npm run dev
+
 ### How to deploy on vercel
 
 - First npm i -g vercel
 - vercel and put your email id
-- Deployed link- https://skilzen-assignment-sukantad.vercel.app/
+- Deployed link- https://skilzen-assignment.vercel.app/
 
 ### Home page how look like
 

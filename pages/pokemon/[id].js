@@ -14,7 +14,9 @@ export async function getServerSideProps(context) {
       },
     };
   } catch (error) {
-    console.log(error);
+    console.log("error")
+    console.log(error,"error while view the page");
+
   }
 }
 
@@ -41,15 +43,13 @@ function id({ pokemon }) {
       </Head>
       <div className=" sm:block md:flex lg:flex xl:flex 2xl:flex justify-between " style={{ fontFamily: "Lora" }}>
         <div className="w-72 sm:w-80 md:w-72 lg:w-80 xl:w-96 2xl:w-auto mx-auto bg-white m-10  border-2 border-grey-500 rounded-2xl	shadow-md 	">
-          <Image
-            className="mx-auto"
+          <img
+            className="mx-auto w-96 h-72"
             src={pokemon?.sprites?.front_default}
-            width={400}
-            height={300}
-            alt={pokemon.name}
+            alt={pokemon?.name}
           />
           <h1 className="text-center capitalize text-3xl pt-2 pb-4">
-            {pokemon.name}
+            {pokemon?.name}
           </h1>
         </div>
         <div className="flex flex-col gap-6 mt-8 md:w-1/2 lg:w-1/2 xl:w-1/2 px-2  ">
@@ -57,9 +57,9 @@ function id({ pokemon }) {
             <h2 className="bg-orange-400 px-4 py-1 rounded-xl text-lg">
               Type:
             </h2>
-            {pokemon.types?.map((e) => (
-              <span key={e.type.name} className="type">
-                {e.type.name}
+            {pokemon?.types?.map((e) => (
+              <span key={e?.type.name} className="type">
+                {e?.type.name}
               </span>
             ))}
           </div>
@@ -68,9 +68,9 @@ function id({ pokemon }) {
             <h2 className=" bg-amber-400 px-4 py-1 rounded-xl text-lg">
               Abilities:
             </h2>
-            {pokemon.abilities?.map((e) => (
-              <span key={e.ability.name} className="ability">
-                {e.ability.name}
+            {pokemon?.abilities?.map((e) => (
+              <span key={e?.ability.name} className="ability">
+                {e?.ability.name}
               </span>
             ))}
           </div>
@@ -81,11 +81,11 @@ function id({ pokemon }) {
               {" "}
               Weight:
             </span>{" "}
-            {pokemon.weight} pounds
+            {pokemon?.weight} pounds
           </div>
           <div>
             <span className="bg-lime-400 px-4 py-1 rounded-xl"> Height:</span>{" "}
-            {pokemon.height} feet
+            {pokemon?.height} feet
           </div>
           <div>
             {" "}
@@ -93,12 +93,12 @@ function id({ pokemon }) {
               {" "}
               Base experience:
             </span>{" "}
-            {pokemon.base_experience}
+            {pokemon?.base_experience}
           </div>
           <div>
             {" "}
             {pokemon?.stats.map((e) => {
-              let text = e.stat.name
+              let text = e?.stat.name
                 .split(" ")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(" ");
