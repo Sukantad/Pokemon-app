@@ -3,11 +3,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import HomePage from "./pokemon";
 
-
 export const getStaticProps = async () => {
-  const res = await axios.get(
-    `https://pokeapi.co/api/v2/ability?offset=0&limit=10`
-  );
+  const res = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
   return {
     props: {
       pokeData: res.data,
