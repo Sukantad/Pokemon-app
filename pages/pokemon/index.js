@@ -40,7 +40,7 @@ function HomePage({ setInputData, data, page, setPage }) {
         />
       </Head>
       <div
-        className="grid gap-4 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6   m-7"
+        className="grid gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6   m-7"
         style={{ fontFamily: "Lora" }}
       >
         {pokDetails?.map((ele, i) => {
@@ -51,7 +51,7 @@ function HomePage({ setInputData, data, page, setPage }) {
           return (
             <Link href={`pokemon/${ele.id}`} key={ele.id}>
               <div
-                className="p-5 border-2 border-grey-500 rounded-2xl	shadow-md  hover:border-violet-300	 md:h-40 lg:h-64 2xl:h-40 	"
+                className="p-5 border-2 border-grey-500 rounded-2xl	shadow-md  hover:border-violet-300	 md:h-52   lg:h-64 2xl:h-40 	"
                 key={i}
               >
                 <img
@@ -59,7 +59,9 @@ function HomePage({ setInputData, data, page, setPage }) {
                   alt="Pokemon image"
                   src={ele?.sprites?.front_default}
                 />
-                <h1 className="text-2xl md:text-base lg:text-2xl	text-center">{text}</h1>
+                <h1 className="text-2xl md:text-base lg:text-2xl	text-center">
+                  {text}
+                </h1>
               </div>
             </Link>
           );

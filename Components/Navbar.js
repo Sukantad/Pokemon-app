@@ -15,7 +15,7 @@ function Navbar({ setInputData }) {
         <h5 className="text-white py-2 font-medium w-1/2  sm:text-base lg:text-2xl xl:text-2xl"> <Link href={"/"}>  Pokemon  </Link></h5> 
     
       <input
-        className="px-1 sm:px-0 lg:px-10 rounded-md"
+        className="px-1 sm:px-0  md:px-10 lg:px-10 rounded-md"
         type="text"
         ref={ref}
         onKeyPress={handleEnter}

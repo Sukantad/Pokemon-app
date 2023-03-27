@@ -5,16 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 export async function getServerSideProps(context) {
-  var id = context.query.id;
-  const data = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
-  return {
-    props: {
-      pokemon: data.data,
-    },
-  };
+  try {
+    var id = context.query.id;
+    const data = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    return {
+      props: {
+        pokemon: data.data,
+      },
+    };
+  } catch (error) {
+    console.log(error);
+  }
 }
+
 function id({ pokemon }) {
-  console.log(pokemon, "id");
   return (
     <>
       <div
@@ -35,8 +39,8 @@ function id({ pokemon }) {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex  justify-between " style={{ fontFamily: "Lora" }}>
-        <div className=" mx-auto bg-white m-10  border-2 border-grey-500 rounded-2xl	shadow-md 	">
+      <div className=" sm:block md:flex lg:flex xl:flex 2xl:flex justify-between " style={{ fontFamily: "Lora" }}>
+        <div className="w-72 sm:w-80 md:w-72 lg:w-80 xl:w-96 2xl:w-auto mx-auto bg-white m-10  border-2 border-grey-500 rounded-2xl	shadow-md 	">
           <Image
             className="mx-auto"
             src={pokemon?.sprites?.front_default}
@@ -48,7 +52,7 @@ function id({ pokemon }) {
             {pokemon.name}
           </h1>
         </div>
-        <div className="flex flex-col gap-6 mt-8 w-1/2">
+        <div className="flex flex-col gap-6 mt-8 md:w-1/2 lg:w-1/2 xl:w-1/2 px-2  ">
           <div className="flex items-center gap-4">
             <h2 className="bg-orange-400 px-4 py-1 rounded-xl text-lg">
               Type:
