@@ -79,6 +79,7 @@ function HomePage({ setInputData, data, page, setPage }) {
         >
           PREV
         </button>
+        <p> {page/10+1}</p>
         <button
           className="rounded-full bg-orange-400	px-5"
           onClick={() => setPage(page + 10)}
