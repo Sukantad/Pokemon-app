@@ -7,53 +7,27 @@ export const getStaticProps = async () => {
   const res = await axios.get(`https://pokeapi.co/api/v2/pokemon`);
   return {
     props: {
-      pokeData: res.data,
+      pokeData: res.data.results,
     },
   };
 };
 
 export default function Home({ pokeData }) {
+  console.log(pokeData, "pokedata");
   const [inputData, setInputData] = useState("");
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(pokeData);
   const [page, setPage] = useState(0);
-  const [pokData, setPokeData] = useState([]);
   // pagination
   const Pagination = async (page) => {
     const value = await axios.get(
-      `https://pokeapi.co/api/v2/ability?offset=${page}&limit=10`
+      `https://pokeapi.co/api/v2/pokemon/?offset=${page}&limit=20`
     );
-    setPokeData(value.data);
+    console.log(value.data.results, "pagi");
+    setData(value.data.results);
   };
   useEffect(() => {
     Pagination(page);
   }, [page]);
-
-  // Mount phase
-  useEffect(() => {
-    var temp = [];
-    pokData?.results?.map((ele) => {
-      try {
-        axios.get(ele.url).then((response) => {
-          temp.push(response?.data.pokemon);
-          setData(...temp);
-        });
-      } catch (error) {
-        console.log(error, "error");
-      }
-    });
-  }, [pokData]);
-  // get search data
-  const getData = async (inputData) => {
-    try {
-      const res = await axios.get(
-        `https://pokeapi.co/api/v2/ability/${inputData}`
-      );
-      setData(res.data.pokemon);
-    } catch (error) {
-      console.log(error, "error");
-      return alert("Please type a valid Pokemon name");
-    }
-  };
 
   useEffect(() => {
     inputData && getData(inputData);
