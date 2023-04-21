@@ -6,23 +6,7 @@ import Head from "next/head";
 const { default: Navbar } = require("../../Components/Navbar");
 
 function HomePage({ setInputData, data, page, setPage }) {
-  // useEffect(() => {
-  //   var temp = [];
-  //   data
-  //     ?.map((ele, i) => {
-  //       return ele?.pokemon?.url;
-  //     })
-  //     ?.map((url) => {
-  //       try {
-  //         axios.get(url).then((response) => {
-  //           temp.push(response?.data);
-  //           setPokDetails([...temp]);
-  //         });
-  //       } catch (error) {
-  //         console.log(error, "error");
-  //       }
-  //     });
-  // }, [data]);
+
 
   const style = {
     backgroundColor: page ? "orange" : "grey",
@@ -30,7 +14,7 @@ function HomePage({ setInputData, data, page, setPage }) {
 
   let text = data?.name
     ?.split(" ")
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .map((word) => word?.charAt(0).toUpperCase() + word?.slice(1))
     .join(" ");
   const id = data?.url?.split("/")[data?.url?.split("/")?.length - 2];
   return (
@@ -54,12 +38,12 @@ function HomePage({ setInputData, data, page, setPage }) {
             {data?.map((ele, i) => {
               let text = ele?.name
                 ?.split(" ")
-                .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                .map((word) => word?.charAt(0).toUpperCase() + word?.slice(1))
                 .join(" ");
               const id = ele?.url?.split("/")[ele?.url?.split("/")?.length - 2];
 
               return (
-                <Link href={`pokemon/${ele.name}`} key={ele.name}>
+                <Link href={`pokemon/${ele?.name}`} key={ele?.name}>
                   <div
                     className="p-5 border-2 border-grey-500 rounded-2xl	shadow-md  hover:border-violet-300	 md:h-52   lg:h-64 2xl:h-40 	"
                     key={i}
@@ -78,10 +62,10 @@ function HomePage({ setInputData, data, page, setPage }) {
             })}
           </>
         ) : (
-          <Link href={`pokemon/${data.name}`} key={data.name}>
+          <Link href={`pokemon/${data?.name}`} key={data?.name}>
             <div
               className="p-5 border-2 border-grey-500 rounded-2xl	shadow-md  hover:border-violet-300	 md:h-52   lg:h-64 2xl:h-40 	"
-              key={data.name}
+              key={data?.name}
             >
               <img
                 className="w-40 m-auto"

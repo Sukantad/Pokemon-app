@@ -43,8 +43,8 @@ function Card({ pokemon }) {
                 Type:
               </h2>
               {pokemon?.types?.map((e) => (
-                <span key={e?.type.name} className="type">
-                  {e?.type.name}
+                <span key={e?.type?.name} className="type">
+                  {e?.type?.name}
                 </span>
               ))}
             </div>
@@ -54,8 +54,8 @@ function Card({ pokemon }) {
                 Abilities:
               </h2>
               {pokemon?.abilities?.map((e) => (
-                <span key={e?.ability.name} className="ability">
-                  {e?.ability.name}
+                <span key={e?.ability?.name} className="ability">
+                  {e?.ability?.name}
                 </span>
               ))}
             </div>
@@ -83,15 +83,15 @@ function Card({ pokemon }) {
             <div>
               {" "}
               {pokemon?.stats.map((e) => {
-                let text = e?.stat.name
+                let text = e?.stat?.name
                   .split(" ")
-                  .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                  .map((word) => word?.charAt(0).toUpperCase() + word?.slice(1))
                   .join(" ");
                 return (
-                  <p key={e.stat.name} className="text-lg pb-4 font-semibold">
+                  <p key={e.stat?.name} className="text-lg pb-4 font-semibold">
                     {text} :{" "}
-                    <meter low="60" high="80" max="100" value={e.base_stat}>
-                      {e.stat.name}
+                    <meter low="60" high="80" max="100" value={e?.base_stat}>
+                      {e.stat?.name}
                     </meter>{" "}
                   </p>
                 );

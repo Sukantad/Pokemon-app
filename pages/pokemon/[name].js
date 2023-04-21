@@ -4,7 +4,7 @@ import axios from "axios";
 
 export async function getServerSideProps(context) {
   try {
-    var name = context.query.name;
+    var name = context?.query?.name;
     const data = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
     return {
       props: {
