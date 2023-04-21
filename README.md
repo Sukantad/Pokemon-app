@@ -1,5 +1,10 @@
 ## This is pokemon web app
 
+### Features
+ - You can see all pokemon
+ - Single pokemon details
+ - Search any pokemon
+
 ### Tech Stack
 
 - Next.js
