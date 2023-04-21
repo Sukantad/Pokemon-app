@@ -1,4 +1,4 @@
-## Home Assignment for NextJs Dev
+## This is pokemon web app
 
 ### Tech Stack
 
@@ -15,7 +15,7 @@
 
 - First npm i -g vercel
 - vercel and put your email id
-- Deployed link- https://skilzen-assignment.vercel.app/
+- Deployed link- https://new-pokemon.vercel.app
 
 ### Home page how look like
 
@@ -23,4 +23,3 @@
 
 ### Every individual pokemon page
 
- <img src="./ReadmeImages/view.png">
