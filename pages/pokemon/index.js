@@ -51,7 +51,7 @@ function HomePage({ setInputData, data, page, setPage }) {
         className="grid gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-6   m-7"
         style={{ fontFamily: "Lora" }}
       >
-        {data.length ? (
+        {data?.length ? (
           <>
             {data?.map((ele, i) => {
               let text = ele?.name

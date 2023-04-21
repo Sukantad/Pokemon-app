@@ -21,7 +21,7 @@ export async function getServerSideProps(context) {
 }
 
 function name({ pokemon }) {
-  if (pokemon.length) {
+  if (pokemon?.length) {
     return (
       <div>
         <Navbar/>
