@@ -6,8 +6,6 @@ import Head from "next/head";
 const { default: Navbar } = require("../../Components/Navbar");
 
 function HomePage({ setInputData, data, page, setPage }) {
-  console.log(data, "d");
-  const [pokDetails, setPokDetails] = useState([]);
   // useEffect(() => {
   //   var temp = [];
   //   data
@@ -34,7 +32,7 @@ function HomePage({ setInputData, data, page, setPage }) {
     ?.split(" ")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ");
-  const id = data?.url?.split("/")[data?.url?.split("/").length - 2];
+  const id = data?.url?.split("/")[data?.url?.split("/")?.length - 2];
   return (
     <>
       <Navbar setInputData={setInputData} />
@@ -58,7 +56,7 @@ function HomePage({ setInputData, data, page, setPage }) {
                 ?.split(" ")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(" ");
-              const ind = ele?.url?.split("/")[ele?.url?.split("/").length - 2];
+              const id = ele?.url?.split("/")[ele?.url?.split("/")?.length - 2];
 
               return (
                 <Link href={`pokemon/${ele.name}`} key={ele.name}>
@@ -69,7 +67,7 @@ function HomePage({ setInputData, data, page, setPage }) {
                     <img
                       className="w-40 m-auto"
                       alt="Pokemon image"
-                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${ind}.png`}
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`}
                     />
                     <h1 className="text-2xl md:text-base lg:text-2xl	text-center">
                       {text}
