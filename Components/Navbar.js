@@ -7,7 +7,8 @@ function Navbar( ) {
   const ref = useRef(null);
   const handleEnter = (e) => {
     if (e.key == "Enter") {
-      router.push(`/pokemon/${ref.current.value} `);
+      let convert = ref?.current?.value.toLowerCase();
+      router.push(`/pokemon/${convert} `);
       //setInputData(ref.current.value);
       ref.current.value = "";
     }

@@ -31,7 +31,13 @@ export default function Home({ pokeData }) {
 
   return (
     <>
-      <HomePage data={data} page={page} setPage={setPage} setloader={setLoader} loader={loader} />
+      <HomePage
+        data={data}
+        page={page}
+        setPage={setPage}
+        setloader={setLoader}
+        loader={loader}
+      />
     </>
   );
 }
