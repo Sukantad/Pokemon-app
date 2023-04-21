@@ -33,6 +33,11 @@ function Card({ pokemon }) {
               src={pokemon?.sprites?.front_default}
               alt={pokemon?.name}
             />
+            <div className="flex justify-around	">
+              <img src={pokemon?.sprites?.back_default} alt="" />
+              <img src={pokemon?.sprites?.front_shiny} alt="" />
+              <img src={pokemon?.sprites?.back_shiny} alt="" />
+            </div>
             <h1 className="text-center capitalize text-3xl pt-2 pb-4">
               {pokemon?.name}
             </h1>
