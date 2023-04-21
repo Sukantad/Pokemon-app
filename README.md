@@ -23,3 +23,4 @@
 
 ### Every individual pokemon page
 
+ <img src="./ReadmeImages/view.png">
