@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useRef } from "react";
 
-function Navbar({ setInputData }) {
+function Navbar( ) {
   const router = useRouter();
   const ref = useRef(null);
   const handleEnter = (e) => {

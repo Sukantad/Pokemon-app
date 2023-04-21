@@ -13,8 +13,7 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ pokeData }) {
-  console.log(pokeData, "pokedata");
-  const [inputData, setInputData] = useState("");
+  const [loader, setLoader] = useState(false);
   const [data, setData] = useState(pokeData);
   const [page, setPage] = useState(0);
   // pagination
@@ -25,19 +24,14 @@ export default function Home({ pokeData }) {
     setData(value?.data?.results);
   };
   useEffect(() => {
+    setLoader(true);
     Pagination(page);
+    setLoader(false);
   }, [page]);
-
 
   return (
     <>
-      <HomePage
-        data={data}
-        setInputData={setInputData}
-        page={page}
-        setPage={setPage}
-      />
+      <HomePage data={data} page={page} setPage={setPage} setloader={setLoader} loader={loader} />
     </>
   );
 }
-
