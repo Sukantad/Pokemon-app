@@ -8,7 +8,7 @@ export async function getServerSideProps(context) {
     const data = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
     return {
       props: {
-        pokemon: data.data,
+        pokemon: data?.data,
       },
     };
   } catch (error) {
@@ -24,8 +24,11 @@ function name({ pokemon }) {
   if (pokemon?.length) {
     return (
       <div>
-        <Navbar/>
-        <h1 style={{textAlign:"center",fontSize:"25px"}}> Not found your pokemon</h1>
+        <Navbar />
+        <h1 style={{ textAlign: "center", fontSize: "25px" }}>
+          {" "}
+          Not found your pokemon
+        </h1>
       </div>
     );
   }
